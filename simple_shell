@@ -1,0 +1,101 @@
+.TH simple_shell 1 "December 12, 2023" "1.0" "simple_shell General Commands Manual"
+
+.SH NAME
+simple_shell \- hsh
+\- command line interpreter or shell
+
+.SH SYNOPSIS
+.B simple_shell
+.I (no options yet)
+
+.SH DESCRIPTION
+simple_shell is a command line interpreter, or shell, inspired by the first Unix shell written by Ken Thompson. It is intentionally minimalistic yet includes the basic functionality of a traditional Unix-like command line interface. simple_shell is designed to run on the Linux environment.
+
+.SH OVERVIEW
+Reading from either the terminal or files, simple_shell interprets and executes commands.
+
+.SH INVOCATION
+Compile simple_shell with the GNU Compiler Collection, preferably using gcc with the below specified flags, as per this example (note the use of the * wildcard which enables all related .c files to be compiled concurrently):
+.P
+.RS
+.B $ gcc -Wall -Werror -Wextra -pedantic *.c -o simple_shell
+.P
+.RE
+
+simple_shell can be run in interactive mode by entering the below command on the command line followed by "Enter." Note that the prompt ('$') will appear, and you will then be in interactive mode and able to enter commands followed by "Enter."
+
+.P
+.RS
+.B $ ./simple_shell
+.P
+.RE
+
+simple_shell can be run in non-interactive mode through the use of shell scripts. This can involve the use of piping ('|'):
+
+.P
+.RS
+.B $ echo 'pwd' | ./simple_shell
+
+.SH EXECUTABLES
+Example of executables:
+.IP
+.P
+.RS
+.B $ echo "Example of executables"
+.P
+.RE
+
+.SH BUILTINS
+The following builtin commands are supported:
+
+.IP
+.B env
+- prints the environment variables
+
+.B exit
+- exits the program
+
+.B setenv
+- sets the environment
+
+.B unsetenv
+- removes elements from the environment
+
+Example of builtin command:
+.IP
+.P
+.RS
+.B $ env
+.P
+.br
+.TP
+.B TERM=xterm-256color
+.B SHELL=/bin/bash
+.B SSH_CLIENT=10.0.2.2 50046 22
+.B OLDPWD=/home/vagrant
+.B SSH_TTY=/dev/pts/0
+.B LC_ALL=en_US
+.B USER=vagrant
+.B MAIL=/var/mail/vagrant
+.B PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+.B PWD=/home/vagrant/simple_shell
+.B LANG=en_US.UTF-8
+.B SHLVL=1
+.B HOME=/home/vagrant
+.B LOGNAME=vagrant
+.B SSH_CONNECTION=10.0.2.2 50046 10.0.2.15 22
+.B LESSOPEN=| /usr/bin/lesspipe %s
+.B LESSCLOSE=/usr/bin/lesspipe %s %s
+.B _
+.B ./simple_shell
+.P
+.RE
+
+.SH BUGS
+No known bugs at this writing (December 12, 2023). Please report any issues to the authors.
+
+.SH AUTHOR
+linaelamrani777 
+
+.SH SEE ALSO
+sh
